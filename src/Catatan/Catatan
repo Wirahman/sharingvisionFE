@@ -1,0 +1,7 @@
+1. Kepada pihak developer Sharing Vision, saya memohon maaf yang sebesarnya karena telat yang disebabkan oleh CORS, CORS tersebut
+terjadi karena saya menggunakan header berupa api key
+2. Sebelum menjalankan aplikasi, harap perhatikan url yang ada difolder src/posts/services/posts.service.ts karena backend 
+saya menggunakan port 4433, harap ubah "https://localhost:4433/sharingvision/api" menjadi "https://localhost/sharingvision/api"
+3. Button simpan ketika buat data baru mempunyai validasi panjang karakter yang sama seperti BE(Back End)
+4. Button ubah ketika edit data mempunyai validasi panjang karakter yang sama seperti BE(Back End)
+5. Menggunakan Angular CLI = 13.3.7 dan Node: 16.15.0

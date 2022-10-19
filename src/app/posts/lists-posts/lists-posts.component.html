@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-compact">
+            <caption>
+                <a (click)="statusPublish()" class='btn btn-info m-r-5px'>
+                  <font color="Blue"><span class='glyphicon glyphicon-user'>Publish</span></font>
+                </a>{{'&nbsp;&nbsp;&nbsp;'}}
+                <a (click)="statusDraft()" class='btn btn-info m-r-5px'>
+                  <font color="Blue"><span class='glyphicon glyphicon-user'>Draft</span></font>
+                </a>{{'&nbsp;&nbsp;&nbsp;'}}
+                <a (click)="statusTrash()" class='btn btn-info m-r-5px'>
+                  <font color="Blue"><span class='glyphicon glyphicon-user'>Trash</span></font>
+                </a>{{'&nbsp;&nbsp;&nbsp;'}}
+                <br>
+                Jumlah Data = {{jumlahData}} data
+            </caption>
+            <thead>
+                <th>No</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of posts | paginate : {
+                    itemsPerPage: pageSize,
+                    currentPage: page,
+                    totalItems: count
+                }; let i = index" [class.active]="i == currentIndex">
+                    <td>{{i + 1}}</td>
+                    <td>{{row.title}}</td>
+                    <td>{{row.category}}</td>
+                    <td>
+                    <a (click)="updatePosts(row.id)" class='btn btn-info m-r-5px'>
+                        <cds-icon shape="pencil"></cds-icon>
+                    </a>&#160;&#160;
+                    
+                    <a (click)="popupHapusPosts(row.id)" class='btn btn-info m-r-5px'>
+                        <cds-icon shape="trash"></cds-icon>
+                    </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12">
+      <pagination-controls
+       previousLabel="Prev" 
+       nextLabel="Next" 
+       [responsive]="true" 
+       (pageChange)="handlePageChange($event)">
+      </pagination-controls>
+    </div>
+</div>
+<app-modals></app-modals>
